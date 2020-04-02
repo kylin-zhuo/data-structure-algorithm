@@ -16,8 +16,17 @@ public class Trie {
 
     private TrieNode root;
 
+    private int numWords;
+
     public Trie() {
         root = new TrieNode('*');
+        numWords = 0;
+    }
+
+    public void insert(String[] words) {
+        for (String word : words) {
+            insert(word);
+        }
     }
     
     /** 
@@ -35,8 +44,12 @@ public class Trie {
             }
             node = node.children[index];
         }
-        node.isLeaf = true;
-        node.word = word;
+        if (!node.isLeaf) {
+            node.isLeaf = true;
+            node.word = word;
+            numWords += 1;
+        }
+        
     }
     
     /** 
@@ -81,8 +94,6 @@ public class Trie {
         return false;
     }
 
-
-    
     /** 
      * Returns if there is any word in the trie that starts with the given prefix. 
      */
@@ -98,6 +109,17 @@ public class Trie {
         return true;
     }
 
+    public int getNumWords() {
+        return numWords;
+    }
+
+    public void setNumWords(int numWords) {
+        this.numWords = numWords;
+    }
+
+    public TrieNode getRoot() {
+        return root;
+    }
 
 }
 
