@@ -37,11 +37,8 @@ class TrieTest {
         assertTrue(trie.searchBlurredWord("oran.."));
         assertTrue(trie.searchBlurredWord("orang.."));
         assertFalse(trie.searchBlurredWord("orang..."));
-        assertTrue(trie.searchBlurredWord(".pp.."));
-        
+        assertTrue(trie.searchBlurredWord(".pp.."));   
     }
-
-
-
+    
 }
 
